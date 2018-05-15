@@ -134,24 +134,24 @@ pioDisp = function(x)
 
 
 
-myFun = function(x, y, z, w, ...) {
-  # Call to the header function
-  pioHdr("My new cool function to do this and that",
-         toPrint = c(
-           `Significance (alpha)` = x,
-           `Statistical test` = y,
-           `Multiple Hypothesis Correction` = z,
-           `Plots` = w
-         ),
-         prefix = '\t-')
-
-
-  return(1234)
-}
-
-myFun(0.05, "Fisher", TRUE, NA)
-
-options('pio.header_bg_colour' = crayon::bgYellow)
-options('pio.header_fg_colour' = crayon::black)
-
-myFun(0.05, "Fisher", TRUE, NA)
+# myFun = function(x, y, z, w, ...) {
+#   # Call to the header function
+#   pioHdr("My new cool function to do this and that",
+#          toPrint = c(
+#            `Significance (alpha)` = x,
+#            `Statistical test` = y,
+#            `Multiple Hypothesis Correction` = z,
+#            `Plots` = w
+#          ),
+#          prefix = '\t-')
+# 
+# 
+#   return(1234)
+# }
+# 
+# myFun(0.05, "Fisher", TRUE, NA)
+# 
+# options('pio.header_bg_colour' = crayon::bgYellow)
+# options('pio.header_fg_colour' = crayon::black)
+# 
+# myFun(0.05, "Fisher", TRUE, NA)

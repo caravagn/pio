@@ -3,8 +3,7 @@ Type: Package
 Title: Pretty I/O
 Version: 0.1.0
 Author: Giulio Caravagna
-Authors@R: c(
-    person("Giulio", "Caravagna", email = "gcaravagn@gmail.com", c("aut", "cre")),
+Authors@R: person("Giulio", "Caravagna", email = "gcaravagn@gmail.com", c("aut", "cre"))
 Maintainer: Giulio Caravagna <gcaravagn@gmail.com>
 Description: Simple R package to wrap coloured outputs to console; it heavily relies on crayon.
 License: MIT

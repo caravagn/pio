@@ -2,13 +2,22 @@
 % Please edit documentation in R/pio.R
 \name{pioStr}
 \alias{pioStr}
-\title{Title}
+\title{A simple string value print, with colour over string}
 \usage{
-pioStr(str, val)
+pioStr(str, val, suffix = "", prefix = "")
 }
 \arguments{
-\item{title}{}
+\item{str}{First string.}
+
+\item{val}{Second string.}
+}
+\value{
+None
 }
 \description{
-Title
+A simple string value print, with colour over string
+}
+\examples{
+pioStr("My string", 12345)
+pioStr("My string", TRUE)
 }

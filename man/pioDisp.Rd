@@ -2,13 +2,23 @@
 % Please edit documentation in R/pio.R
 \name{pioDisp}
 \alias{pioDisp}
-\title{Title}
+\title{Display some content. We try to convert almost everything to tibbles
+as they have a nice layout function.}
 \usage{
 pioDisp(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{Content to display}
+}
+\value{
+None
 }
 \description{
-Title
+Display some content. We try to convert almost everything to tibbles
+as they have a nice layout function.
+}
+\examples{
+M = matrix(1:100, ncol = 10)
+M[1,4] = NA
+pioDisp(M)
 }
