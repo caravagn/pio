@@ -87,6 +87,7 @@ pioTit =  function(title, prefix = '')
 #'
 #' @examples
 #' pioStr("My string", 12345)
+#' pioStr("My string", TRUE)
 pioStr =  function(str, val, suffix = '', prefix = '')
 {
   tfcol = getOption('pio.string_fg_colour', default = crayon::cyan)
