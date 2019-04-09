@@ -1,0 +1,101 @@
+---
+title: "pio vignette"
+author: "Giulio Caravagna"
+date: "25 February 2019"
+institute: "Institute for Cancer Research"
+email: "giulio.caravagna@ed.ac.uk"
+output: rmarkdown::github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval = FALSE}
+devtools::install_github("caravagn/pio")
+```
+
+The **pretty I/O** R package `pio` provides functions to layout coloured outputs to console, in a neat way. If you work constantly with R scripts that generate several outputs, a tidy organisation of your outputs makes it easier to spot relevant information on the fly.
+
+`pio` relies a lot on `crayon`, which provides some simple functions to add colours to terminals.
+
+## Example: header and parameters
+
+You have your beautiful function
+```R
+myFun = function(x, y, z, w, ...) { 
+   print(
+      paste("Function to do this and that, run with ", x, y, z, w)
+   )
+
+   ... all the juicy bits ...
+
+ }
+```
+
+With ``pio``, you can be more kind to other people and organize its header
+```R
+myFun = function(x, y, z, w, ...) 
+{ 
+   # Call to the pio header function
+   pioHdr("My new cool function to do this and that",
+      toPrint = c(
+         `Significance (alpha)` = x,
+         `Statistical test` = y,
+         `Multiple Hypothesis Correction` = z,
+         `Plots` = w
+      ),
+      prefix = '\t-')
+
+   ... still the juicy bits ...
+
+ }
+```
+
+The output (in my RStudio) will look like this
+
+![https://c2473ef9-a-62cb3a1a-s-sites.googlegroups.com/site/giuliocaravagna/ex-1.png](https://c2473ef9-a-62cb3a1a-s-sites.googlegroups.com/site/giuliocaravagna/ex-1.png)
+
+```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("temp.png")
+```
+
+## Example: other prints
+
+You have a few functions to use. In what follows we cannot render the colour, but I swear it is there.
+* print a "title", which will be wrapped with '-'
+
+```R
+> pio::pioTit("Some cool computation")
+
+---------------------
+Some cool computation
+---------------------
+```
+* print a string/ value with ``pioStr``;
+* use a display function ``pioDisp`` that tries to convert its input to a ``tibble``, and exploit its tibble's functions (which are already cool).
+
+## Changing colour codes
+
+`pio` uses R's options to understand which colours should be used. Everybody can set this to create his favourite colour combinations.
+
+* `pio.header_bg_colour` is the background colour of the header, default is ``crayon::bgBlue``;
+* `pio.header_fg_colour` is the foreground colour of the header, default is ``crayon::white``;
+* `pio.args_colour` is the foreground colour of the arguments, default is ``crayon::cyan``;
+* `pio.title_fg_colour` is the foreground colour of a title, default is ``crayon::cyan``;
+* `pio.string_fg_colour` is the foreground colour of a string, default is ``crayon::cyan``;
+
+**Example.** Change colours of the header: black text on orange background
+
+```R
+options('pio.header_bg_colour' = crayon::bgYellow)
+options('pio.header_bg_colour' = crayon::bgYellow)
+```
+The output will now look like this
+
+![](https://c2473ef9-a-62cb3a1a-s-sites.googlegroups.com/site/giuliocaravagna/ex-2.png)
+
+
+
+
+
