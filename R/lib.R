@@ -1,29 +1,13 @@
-
-pioTkn = function(x)
+# Add Args names to x
+consolidate_names = function(x)
 {
-  if(is.null(x)) return(crayon::bgRed(' NULL '))
-  if(is.na(x)) return(crayon::bgRed(' N/A '))
-
-  # if(is.character(x))
-  # {
-  #   return(crayon::blue(paste("\"", x, "\"", sep = '')))
-  # }
-
-  if(is.logical(x) ||
-    (
-       is.character(x) && (x == 'FALSE' || x == 'TRUE')
-
-  ))
-  {
-    x = as.logical(x)
-
-    if(x) return(crayon::green(x))
-    else return(crayon::red(x))
-  }
-
-  return(x)
+  n = length(x)
+  
+  if (is.null(names(x)))
+    names(x) = paste0('Arg. #', 1:n)
+  
+  x
 }
-
 
 # set x's values to be the names of y
 nmfy = function(x, y)
@@ -31,7 +15,6 @@ nmfy = function(x, y)
   names(y) = x
   y
 }
-
 
 # Convert matrix to df
 m2df = function(matr) {
