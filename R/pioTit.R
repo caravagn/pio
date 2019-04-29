@@ -11,7 +11,7 @@
 #' @param separator_motif The separator motif, default is `=-`.
 #'
 #' @return None
-#' @export
+#' @export pioTit
 #'
 #' @examples
 # # A title can be a long string

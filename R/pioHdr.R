@@ -9,7 +9,7 @@
 #' @param prefix A prefix for each one of the strings in `toPrint`, passed to \code{\link{pioStr}}.
 #'
 #' @return None
-#' @export
+#' @export pioHdr
 #'
 #' @examples
 # # A simple header

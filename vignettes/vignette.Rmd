@@ -1,101 +1,134 @@
 ---
-title: "pio vignette"
-author: "Giulio Caravagna"
-date: "25 February 2019"
+title: "Pretty I/O to the console"
 institute: "Institute for Cancer Research"
-email: "giulio.caravagna@ed.ac.uk"
+author: "Giulio Caravagna"
+date: "29/04/2019"
 output: rmarkdown::github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+The **pretty I/O** R package `pio` provides functions to print coloured outputs in an organized way to console. This allows organizing outputs in a tidy way, making it easier to spot information while interacting with a tool.
+
+`pio` provides a few types of functions that display:
+
+* a *header*, that is meant to display a summary string (like a program name, a function name etc.);
+* a *title*, that is meant to display a string surrounded by some separators (like a title for a task within a multi-step function);
+* a *string* in the format `Variable = Value`, meant to display a pair (descriptor plus value).
+
+Other functions and simple ways to manipulate color schema are available and shown in this vignette.
+
+**Note.** `pio` relies on [crayon](https://github.com/r-lib/crayon), which provides core functions to add colours to terminals. This vignette is generated using the [fansi](https://github.com/brodieG/fansi) package that renders ANSI modified strings from `crayon` into HTML code.
+
+```{r, comment="", results="asis", echo=FALSE, message=FALSE}
+# The hook for this vignette, via fansi
+old.hooks <- fansi::set_knit_hooks(knitr::knit_hooks)
+
+# Activate crayon and pio
+options(crayon.enabled = TRUE)
+require(pio)
 ```
 
-```{r, eval = FALSE}
-devtools::install_github("caravagn/pio")
+
+## Header 
+
+A header is a one-line information that can be used to communicate the name of a tool, model, algorithm etc. 
+
+It's simpler form is just some lines of text, which in the baseline setting is white on blue background. The function accepts an ellipsis to allow easy concatenation of multiple values.
+```{r, echo = TRUE, comment=""}
+version = '1.0'
+tool_name = 'COOLTOOL'
+
+pioHdr("My new", tool_name, version)
 ```
 
-The **pretty I/O** R package `pio` provides functions to layout coloured outputs to console, in a neat way. If you work constantly with R scripts that generate several outputs, a tidy organisation of your outputs makes it easier to spot relevant information on the fly.
+The header function can accepts also parameters, and use other `pio` functions to print them (`pioTkn` and `pioStr`, see below). This helps using `pioHdr` in the beginning of a compplex function call, where we want to summarize some behaviour to the user. 
+Notice that, if the parameters have no names associated, automatic names are generated. 
 
-`pio` relies a lot on `crayon`, which provides some simple functions to add colours to terminals.
+```{r, echo = TRUE, comment=""}
+# Parameters
+x = 12345
+y = TRUE
+z = NA  # Notice this how it gets printed
 
-## Example: header and parameters
+# Vector (without names)
+params = c(x, y, z)
 
-You have your beautiful function
-```R
-myFun = function(x, y, z, w, ...) { 
-   print(
-      paste("Function to do this and that, run with ", x, y, z, w)
-   )
+pioHdr("My new", tool_name, version, 
+       toPrint = params)
 
-   ... all the juicy bits ...
+# Add names, and re-print
+names(params) = c("Input = ", "Test = ", "Plot = ")
 
- }
+pioHdr("My new", tool_name, version, 
+       toPrint = params)
 ```
 
-With ``pio``, you can be more kind to other people and organize its header
-```R
-myFun = function(x, y, z, w, ...) 
-{ 
-   # Call to the pio header function
-   pioHdr("My new cool function to do this and that",
-      toPrint = c(
-         `Significance (alpha)` = x,
-         `Statistical test` = y,
-         `Multiple Hypothesis Correction` = z,
-         `Plots` = w
-      ),
-      prefix = '\t-')
+The list of parameters can be displaied with some extra prefix, (e.g., an intendation, a separator etc.), that is added to all values in `toPrint` using the `pioStr` function. For instance, if we want to add a tabulation to arrange all parameters we can use `prefix = '\t- '`.
 
-   ... still the juicy bits ...
+## Titles
 
- }
+A title is just a piece of text surrounded by some nice separator. In its simpler form is can contain one or more strings (like the header, via an ellipsis).
+
+```{r, echo = TRUE, comment=""}
+# A title with variables
+x = 12345
+y = "myFun"
+
+pioTit('We now call', y, 'with', x, "as input")
 ```
 
-The output (in my RStudio) will look like this
+This function accepts also a `prefix` argument that can ben used to append some string
+before all strings print by `pioTit`.
 
-![https://c2473ef9-a-62cb3a1a-s-sites.googlegroups.com/site/giuliocaravagna/ex-1.png](https://c2473ef9-a-62cb3a1a-s-sites.googlegroups.com/site/giuliocaravagna/ex-1.png)
-
-```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
-knitr::include_graphics("temp.png")
+```{r, echo = TRUE, comment=""}
+# A title with escape chars in the prefix
+pioTit('We now call', y, 'with', x, "as input",
+       prefix = '>--\\/\\/\\/-->>\t')
 ```
 
-## Example: other prints
-
-You have a few functions to use. In what follows we cannot render the colour, but I swear it is there.
-* print a "title", which will be wrapped with '-'
-
-```R
-> pio::pioTit("Some cool computation")
-
----------------------
-Some cool computation
----------------------
+The separator can also be customized.
+```{r, echo = TRUE, comment=""}
+pioTit('We now call', y, 'with', x, "as input", 
+       separator_motif = '~')
 ```
-* print a string/ value with ``pioStr``;
-* use a display function ``pioDisp`` that tries to convert its input to a ``tibble``, and exploit its tibble's functions (which are already cool).
 
-## Changing colour codes
+# Strings
 
-`pio` uses R's options to understand which colours should be used. Everybody can set this to create his favourite colour combinations.
+Function `pioStr` can print a pair of values which are thought to represent a description, followed its a value. For instance `P-value = 0.05` could be print by passing the string `"P-value ="` together with `0.05` as arguments to `pioStr`. Notice that the value content is tokenized by function `pioTkn` (see below).
 
-* `pio.header_bg_colour` is the background colour of the header, default is ``crayon::bgBlue``;
-* `pio.header_fg_colour` is the foreground colour of the header, default is ``crayon::white``;
-* `pio.args_colour` is the foreground colour of the arguments, default is ``crayon::cyan``;
-* `pio.title_fg_colour` is the foreground colour of a title, default is ``crayon::cyan``;
-* `pio.string_fg_colour` is the foreground colour of a string, default is ``crayon::cyan``;
+```{r, echo = TRUE, comment=""}
+# Simple call
+pioStr('N = ', 12345)
 
-**Example.** Change colours of the header: black text on orange background
-
-```R
-options('pio.header_bg_colour' = crayon::bgYellow)
-options('pio.header_bg_colour' = crayon::bgYellow)
+# Observe the tokenization
+pioStr('A & B = ', TRUE, 'while the result is', NULL)
 ```
-The output will now look like this
 
-![](https://c2473ef9-a-62cb3a1a-s-sites.googlegroups.com/site/giuliocaravagna/ex-2.png)
+This function accepts both a `prefix` and a `suffix` argument.
+
+```{r, echo = TRUE, comment=""}
+x = 1:5
+
+invisible(sapply(x, pioStr,  str = 'N = ', prefix = '\t- ', suffix = '\n'))
+```
 
 
+# Color schema
 
+`pio` provides a default color schema `colorscheme_default`, which is a combination of blue, cyan and white colours from `crayon`. The colours are essentially controlled via some global variables named `pio.XXX`, and there are options to control pretty much the background and foreground colour of each `pio` function.
+
+A colour scheme is defined as in this function
+```{r, echo = TRUE, comment=""}
+print(colorscheme_default)
+```
+
+If you want to change colour scheme you just need to call the appropriate function. There are 2 extra color schema available in the package, `colorscheme_orange_black` which combines yellow and black colours, and `colorscheme_purple_ivory` which combines violet and white colours.
+
+```{r, echo = TRUE, comment=""}
+colorscheme_orange_black()
+
+pioHdr("My function name")
+pioTit("A long title for my computation")
+pioStr("Variable X = ", TRUE)
+```
 
 

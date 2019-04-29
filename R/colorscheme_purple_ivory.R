@@ -10,15 +10,15 @@
 colorscheme_purple_ivory = function()
 {
   # Header 
-  options('pio.header_bg_colour' = make_style("darkorchid4", bg = TRUE))
-  options('pio.header_fg_colour' = make_style("ivory"))
+  options('pio.header_bg_colour' = crayon::make_style("darkorchid4", bg = TRUE))
+  options('pio.header_fg_colour' = crayon::make_style("ivory"))
   
   # Title
-  options('pio.title_sep_colour' = make_style("darkorchid4"))
-  options('pio.title_fg_colour' = make_style("darkorchid4"))
+  options('pio.title_sep_colour' = crayon::make_style("darkorchid4"))
+  options('pio.title_fg_colour' = crayon::make_style("darkorchid4"))
   
   # String
   options('pio.string_bg_colour' = crayon::bgWhite)
-  options('pio.string_fg_colour' = make_style("darkorchid4"))
+  options('pio.string_fg_colour' = crayon::make_style("darkorchid4"))
 }
 

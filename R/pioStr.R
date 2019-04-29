@@ -24,7 +24,7 @@
 #'
 #' @examples
 #' pioStr("My string", 12345)
-#' pioStr("My string", TRUE)
+#' pioStr("My variable", TRUE, 'for some reason')
 pioStr =  function(str, ..., suffix = '', prefix = '')
 {
   colors = getColors()
