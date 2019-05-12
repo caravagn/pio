@@ -1,11 +1,13 @@
 ---
-title: "Pretty I/O to the console"
+title: "Vignette for the pio package"
 institute: "Institute for Cancer Research"
 author: "Giulio Caravagna"
 date: "29/04/2019"
-output: 
-  # rmarkdown::github_document
-  html_document
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteIndexEntry{Title of your vignette}
+  %\usepackage[UTF-8]{inputenc}
 ---
 
 The **pretty I/O** R package `pio` provides functions to print coloured outputs in an organized way to console. This allows organizing outputs in a tidy way, making it easier to spot information while interacting with a tool.
