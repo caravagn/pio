@@ -1,7 +1,6 @@
 # pio
 
-This package implements a simple pretty I/O output to the console, exploting
-
+If you work constantly with R scripts that generate several outputs, a tidy organisation of your outputs makes it easier to spot relevant information on the fly. The `pio` package implements a simple pretty I/O output to the console, exploting the `crayon` package to render couloured text and providing simple functions to layout headers, titles and other stuff. 
 
 ## Installation
 
