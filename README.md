@@ -15,7 +15,10 @@ The only dependences are [tibbles](https://tibble.tidyverse.org/) from tidyverse
 
 ## Manual
 
-See the package [website](docs/index.html).
+See the package [website](https://htmlpreview.github.io/?https://github.com/caravagn/pio/blob/master/docs/index.html).
 
+## Support
+
+Please use GitHub issues systems, or get in touch with me.
 
 Author: Giulio Caravagna (gcaravagn@gmail.com)
