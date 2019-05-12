@@ -10,6 +10,8 @@
 #'
 #' @return None
 #' @export pioHdr
+#' 
+#' @import crayon
 #'
 #' @examples
 #' # A simple header

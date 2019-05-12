@@ -15,6 +15,8 @@
 #'
 #' @return A collapsed output strong with tokenized inputs.
 #' @export pioTkn
+#' 
+#' @import crayon
 #'
 #' @examples
 #' # Takenize different types of variables 

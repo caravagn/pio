@@ -13,6 +13,8 @@
 #' @return None
 #' @export pioTit
 #'
+#' @import crayon
+#' 
 #' @examples
 #' pioTit('We now perform some long computation') # A title can be a long string
 #'
