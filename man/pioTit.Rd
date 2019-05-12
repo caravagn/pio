@@ -11,7 +11,7 @@ pioTit(..., prefix = "", separator_motif = "=-")
 create the title.}
 
 \item{prefix}{A prefix to the string and dashes (e.g. some indentation
-char like `\t`), nothing by default.}
+char like `\\t`), nothing by default.}
 
 \item{separator_motif}{The separator motif, default is `=-`.}
 }

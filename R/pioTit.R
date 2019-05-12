@@ -7,7 +7,7 @@
 #' @param ... A list of parameters that will be concatenated to
 #' create the title.
 #' @param prefix A prefix to the string and dashes (e.g. some indentation
-#' char like `\t`), nothing by default.
+#' char like `\\t`), nothing by default.
 #' @param separator_motif The separator motif, default is `=-`.
 #'
 #' @return None

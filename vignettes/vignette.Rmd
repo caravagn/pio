@@ -3,7 +3,9 @@ title: "Pretty I/O to the console"
 institute: "Institute for Cancer Research"
 author: "Giulio Caravagna"
 date: "29/04/2019"
-output: rmarkdown::github_document
+output: 
+  # rmarkdown::github_document
+  html_document
 ---
 
 The **pretty I/O** R package `pio` provides functions to print coloured outputs in an organized way to console. This allows organizing outputs in a tidy way, making it easier to spot information while interacting with a tool.
@@ -16,9 +18,13 @@ The **pretty I/O** R package `pio` provides functions to print coloured outputs 
 
 Other functions and simple ways to manipulate color schema are available and shown in this vignette.
 
-**Note.** `pio` relies on [crayon](https://github.com/r-lib/crayon), which provides core functions to add colours to terminals. This vignette is generated using the [fansi](https://github.com/brodieG/fansi) package that renders ANSI modified strings from `crayon` into HTML code.
+**Note.** `pio` relies on [crayon](https://github.com/r-lib/crayon), which provides core functions to add colours to terminals. This vignette is generated using the [fansi](https://github.com/brodieG/fansi) package that renders ANSI modified strings from `crayon` into HTML code. However, some of the generated layout still renders poorly in HTML, but try the package yourself to see how the layout looks like.
 
-```{r, comment="", results="asis", echo=FALSE, message=FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, comment="", results="asis", echo=TRUE, message=FALSE}
 # The hook for this vignette, via fansi
 old.hooks <- fansi::set_knit_hooks(knitr::knit_hooks)
 
