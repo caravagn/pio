@@ -6,7 +6,7 @@ Author: Giulio Caravagna
 Authors@R: person("Giulio", "Caravagna", email = "gcaravagn@gmail.com", c("aut", "cre"))
 Maintainer: Giulio Caravagna <gcaravagn@gmail.com>
 Description: Simple R package to wrap coloured outputs to console and create simple, well-organized outputs; it heavily relies on crayon.
-License: MIT
+License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
