@@ -1,6 +1,6 @@
 # pio
 
-This package implements a simple pretty I/O output to the console, exploting
+This package implements a simple pretty I/O output to the console, exploting the `crayon` package to render couloured text and providing simple functions to layout headers, titles and other stuff.
 
 
 ## Installation
