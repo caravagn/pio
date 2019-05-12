@@ -21,3 +21,29 @@ None
 \description{
 Print a header, plus some optional parameters.
 }
+\examples{
+# A simple header
+pioHdr("My new cool tool")
+
+# A header with also some parameters, if the parameters
+# are not part of a named vector, automatic names are generated
+
+x = 12345
+y = TRUE
+z = NA
+
+pioHdr("My new cool function", toPrint = c(x, y, z))
+
+# If names are available, they are used
+params = c(x, y, z)
+names(params) = c("Input = ", "Test = ", "Plot = ")
+
+pioHdr("My new cool function", toPrint = params)
+
+# Using extra formats
+pioHdr("My new cool function", toPrint = params, prefix = '\\t- ')
+
+# Change colours -- blak text on orange background
+colorscheme_orange_black()
+pioHdr("My new cool function", toPrint = params)
+}

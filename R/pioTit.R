@@ -14,22 +14,21 @@
 #' @export pioTit
 #'
 #' @examples
-# # A title can be a long string
-# pioTit('We now perform some long computation')
-# 
-# # Can contain variables
-# x = 12345
-# y = "myFun"
-# pioTit('We now call', y, 'with', x, "as inoput")
-# 
-# # A title can be indented
-# pioTit('To the right', prefix = '\t')
-# 
-# # Or even have more complex layouts
-# pioTit('To the right', prefix = '>--\\/\\/\\/-->>')
-# 
-# # The separator can be customized
-# pioTit('We now perform some long computation', separator_motif = '|-=__=-|')
+#' pioTit('We now perform some long computation') # A title can be a long string
+#'
+#' # Can contain variables
+#' x = 12345
+#' y = "myFun"
+#' pioTit('We now call', y, 'with', x, "as inoput")
+#' 
+#' # A title can be indented
+#' pioTit('To the right', prefix = '\t')
+#' 
+#' # Or even have more complex layouts
+#' pioTit('To the right', prefix = '>--\\/\\/\\/-->>')
+#' 
+#' # The separator can be customized
+#' pioTit('We now perform some long computation', separator_motif = '|-=__=-|')
 pioTit =  function(...,
                    prefix = '',
                    separator_motif = '=-')

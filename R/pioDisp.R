@@ -8,6 +8,9 @@
 #' @param x Content to display
 #'
 #' @return None
+#' 
+#' @import tibble
+#' 
 #' @export
 #'
 #' @examples

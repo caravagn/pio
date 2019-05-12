@@ -23,3 +23,20 @@ Print a title to screen, surrounded by lines created
 from a separator (e.g., `=-`). A title has a newline both before
 and after the title is print.
 }
+\examples{
+pioTit('We now perform some long computation') # A title can be a long string
+
+# Can contain variables
+x = 12345
+y = "myFun"
+pioTit('We now call', y, 'with', x, "as inoput")
+
+# A title can be indented
+pioTit('To the right', prefix = '\\t')
+
+# Or even have more complex layouts
+pioTit('To the right', prefix = '>--\\\\/\\\\/\\\\/-->>')
+
+# The separator can be customized
+pioTit('We now perform some long computation', separator_motif = '|-=__=-|')
+}
