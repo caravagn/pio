@@ -17,7 +17,7 @@ pio::pioHdr('Hello world!')
 
 #### Help and support
 
-`pio` has its own webpage at [GitHub pages](https://caravagn.github.io/opio/).
+`pio` has its own webpage at [GitHub pages](https://caravagn.github.io/pio/).
 
 -----
 
