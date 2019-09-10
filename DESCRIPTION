@@ -1,6 +1,6 @@
 Package: pio
 Type: Package
-Title: Pretty I/O
+Title: pio - Pretty I/O
 Version: 0.1.0
 Author: Giulio Caravagna
 Authors@R: person("Giulio", "Caravagna", email = "gcaravagn@gmail.com", c("aut", "cre"))
@@ -17,3 +17,6 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/caravagn/pio
+BugReports: https://github.com/caravagn/pio/issues
+

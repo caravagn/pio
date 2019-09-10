@@ -1,29 +1,44 @@
+
+<!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.org/caravagn/pio.svg?branch=master)](https://travis-ci.org/caravagn/pio)
+<!-- badges: end -->
+
+
 # pio
 
 If you work constantly with R scripts that generate several outputs, a tidy organisation of your outputs makes it easier to spot relevant information on the fly. The `pio` package implements a simple pretty I/O output to the console, exploting the `crayon` package to render couloured text and providing simple functions to layout headers, titles and other stuff. 
 
-## Installation
 
-Use either `devtools` or `remotes`
-```R
-devtools::install_github(repo = "caravagn/pio")
+``` r
+pio::pioHdr('Hello world!')
 ```
-The only dependences are [tibbles](https://tibble.tidyverse.org/) from tidyverse, and
-[crayon](https://github.com/r-lib/crayon).
 
+#### Help and support
 
-## Manual
+`pio` has its own webpage at [GitHub pages](https://caravagn.github.io/opio/).
 
-See the package [website](https://htmlpreview.github.io/?https://github.com/caravagn/pio/blob/master/docs/index.html).
+-----
 
-## Support
+### Installation
 
-Please use GitHub issues systems, or get in touch with me.
+You can install the released version of `pio` from
+[GitHub](https://github.com/) with:
 
-Author: Giulio Caravagna (gcaravagn@gmail.com)
+``` r
+# install.packages("devtools")
+devtools::install_github("caravagn/pio")
+```
 
-## Build report
+-----
 
-| Branch              | Stato CI      |
-|---------------------|---------------|
-| master | [![Build Status](https://travis-ci.org/caravagn/pio.svg?branch=master)](https://travis-ci.org/caravagn/pio) |
+#### Copyright and contacts
+
+Giulio Caravagna, PhD. _Institute of Cancer Research, London, UK_.
+
+* Personal webpage: [https://bit.ly/2kc9E6Y](https://sites.google.com/site/giuliocaravagna/), 
+* Email address: [giulio.caravagna@icr.ac.uk](mailto:giulio.caravagna@icr.ac.uk) and [gcaravagn@gmail.com](mailto:gcaravagn@gmail.com)
+* Twitter feed: [@gcaravagna](https://twitter.com/gcaravagna)
+* GitHub space: [caravagn](https://github.com/caravagn)
+
