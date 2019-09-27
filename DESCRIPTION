@@ -3,9 +3,12 @@ Type: Package
 Title: pio - Pretty I/O
 Version: 0.1.0
 Author: Giulio Caravagna
-Authors@R: person("Giulio", "Caravagna", email = "gcaravagn@gmail.com", c("aut", "cre"))
 Maintainer: Giulio Caravagna <gcaravagn@gmail.com>
-Description: Simple R package to wrap coloured outputs to console and create simple, well-organized outputs; it heavily relies on crayon.
+Authors@R: person("Giulio", "Caravagna", role = c("aut", "cre"), email = "gcaravagn@gmail.com")
+Description: `pio` is a package to print nice coloured outputs to the console. If you work with 
+  R scripts that generate several loads or outputs, or if you just like to organize in a tidy 
+  way on-screen outputs of your computations, then `pio`'s pretty I/O system is the package 
+  that you are looking for.
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -6,14 +6,20 @@ status](https://travis-ci.org/caravagn/pio.svg?branch=master)](https://travis-ci
 <!-- badges: end -->
 
 
-# pio
+# pio - pretty I/O<img src='man/figures/logo.png' align="right" height="139" />
 
-If you work constantly with R scripts that generate several outputs, a tidy organisation of your outputs makes it easier to spot relevant information on the fly. The `pio` package implements a simple pretty I/O output to the console, exploting the `crayon` package to render couloured text and providing simple functions to layout headers, titles and other stuff. 
+`pio` is a package to print nice coloured outputs to the console.
 
+If you work with R scripts that generate several loads or outputs, or if you just like to organize in a tidy way on-screen outputs of your computataions, then `pio`'s pretty I/O system is the package that you are looking for.
 
-``` r
-pio::pioHdr('Hello world!')
-```
+`pio` explots the great `crayon` [package](https://github.com/r-lib/crayon) to render couloured text to the console. The package provides a very simple interface to visualize three types of messages:
+
+* headers;
+* titles with separators;
+* strings with coloured values;
+
+Use `pio` to easily achieve a tidy and coloured organisation of your messages, so that your users will find it easier to spot relevant information from your functions' outputs. 
+
 
 #### Help and support
 
