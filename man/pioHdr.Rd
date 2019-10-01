@@ -2,7 +2,7 @@
 % Please edit documentation in R/pioHdr.R
 \name{pioHdr}
 \alias{pioHdr}
-\title{Print a title.}
+\title{Print a header}
 \usage{
 pioHdr(..., toPrint = NULL, prefix = "")
 }
@@ -20,6 +20,14 @@ None
 }
 \description{
 Print a header, plus some optional parameters.
+
+A header is thought to be the first message of a complex function, or
+of a runtime load for a package etc. Compare to \code{\link{pioTit}},
+the header does not have the surrounding symbols and imposes less
+separations on the output layout.
+
+The function allows also to pass some named vector as extra parameters,
+which will be layed out using function \code{\link{pioStr}}.
 }
 \examples{
 # A simple header

@@ -2,8 +2,7 @@
 % Please edit documentation in R/pioDisp.R
 \name{pioDisp}
 \alias{pioDisp}
-\title{Display some content. We try to convert almost everything to tibbles
-as they have a nice layout function.}
+\title{Display some content.}
 \usage{
 pioDisp(x)
 }
@@ -11,11 +10,11 @@ pioDisp(x)
 \item{x}{Content to display}
 }
 \value{
-None
+Nothing.
 }
 \description{
-Display some content. We try to convert almost everything to tibbles
-as they have a nice layout function.
+This function tries to convert almost everything to `tibble`
+data structure, so that we can exploit their nice layout functions.
 }
 \examples{
 M = matrix(1:100, ncol = 10)

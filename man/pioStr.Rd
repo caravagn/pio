@@ -2,16 +2,17 @@
 % Please edit documentation in R/pioStr.R
 \name{pioStr}
 \alias{pioStr}
-\title{Print a pair of values.}
+\title{Print a string `A = ...`.}
 \usage{
 pioStr(str, ..., suffix = "", prefix = "")
 }
 \arguments{
-\item{str}{First string to print, the description that can
+\item{str}{First string to print, the description that is to
 be coloured.}
 
 \item{...}{A list of parameters that will be concatenated to
-create the seconf value. These will be tokenized with \code{\link{pioTkn}}.}
+create the second, non coloured, value. 
+These will be tokenized with \code{\link{pioTkn}}.}
 
 \item{suffix}{Suffix to add as tail of the string.}
 
@@ -21,14 +22,17 @@ create the seconf value. These will be tokenized with \code{\link{pioTkn}}.}
 None
 }
 \description{
-This function can print a pair of values
-which are thought to represent a description followed by
-a value. For instance `P-value = 0.05` would be print by
+This function prints a string `A = ...`. thought to represent a 
+description `A` followed by one or more values `...`.
+
+For instance `P-value = 0.05` can be print by
 passing the string `"P-value ="` together with `0.05`.
-The function is thought to colour the first of the two
+
+The function colours the first of the two
 parameters via options `pio.string_bg_colour` and
 `pio.string_fg_colour`, and the second string according to
 the tokenizer function \code{\link{pioTkn}}.
+
 The function can also add a prefix and a suffix to the output,
 which allows easily to indent the output message, or add
 a newline at the end of it.

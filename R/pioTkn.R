@@ -1,10 +1,10 @@
 #' Tokenizer.
 #' 
 #' @description This function tokenizes each one of
-#' a set of ellipsis parameters, and will create a
+#' a set of ellipsis parameters, and creates a
 #' concatenated output string with spaces. Each input
 #' value will be tokenized as follows: if the value is
-#' NA or NULL, a red background will be reported with
+#' `NA` or `NULL`, a red background is reported with
 #' white text; if the value is logical, true values will
 #' be green and false value will be red. In all other cases
 #' the output and the input match.

@@ -2,12 +2,16 @@
 
 
 
-#' Display some content. We try to convert almost everything to tibbles
-#' as they have a nice layout function.
+#' Display some content. 
+#' 
+#' @description 
+#' 
+#' This function tries to convert almost everything to `tibble`
+#' data structure, so that we can exploit their nice layout functions.
 #'
 #' @param x Content to display
 #'
-#' @return None
+#' @return Nothing.
 #' 
 #' @import tibble
 #' 
