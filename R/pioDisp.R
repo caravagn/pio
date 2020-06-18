@@ -24,7 +24,7 @@
 pioDisp = function(x)
 {
   if (is.data.frame(x))
-    print(tibble::as.tibble(x))
+    print(tibble::as_tibble(x))
 
   if (is.vector(x)) {
     if (is.null(names(x)))
@@ -33,12 +33,12 @@ pioDisp = function(x)
     df = data.frame(entry = names(x),
                     value = x,
                     stringsAsFactors = FALSE)
-    print(tibble::as.tibble(df))
+    print(tibble::as_tibble(df))
   }
 
   if (is.matrix(x))
   {
-    print(tibble::as.tibble(x))
+    print(tibble::as_tibble(x))
   }
 
   invisible(NULL)
